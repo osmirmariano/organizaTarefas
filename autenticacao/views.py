@@ -30,7 +30,7 @@ class autenticacaoUsuario(View):
                 context.update(message='Usário e/ou senha incorreto')
         return render (request, 'autenticacao/login.html', context)
 
-class LogoutView(View):
+class logoutView(View):
     """
     Para logout do usuário
     """
