@@ -30,11 +30,6 @@ class autenticacaoUsuario(View):
                 context.update(message='Usário e/ou senha incorreto')
         return render (request, 'autenticacao/login.html', context)
 
-class logoutView(View):
-    """
-    Para logout do usuário
-    """
-    def logout_view(self, request):
-        context = {}
-        logout(self, request)
-        return render (request, 'autenticacao/login.html', context)
+def sair(request):
+        logout(request)
+        return redirect ('/')
