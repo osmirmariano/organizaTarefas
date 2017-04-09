@@ -11,8 +11,11 @@
         <meta content="width=divice-width, inital-scale=1, maximum-scale=1, user-scalable=no" name="view"/> 
     </head>
     <body class="hold-transition login-page">
-        {% if context and context.message %}
-            <div class="alert alert-success alert-dismissible" role="alert">Mensagem teste</div>
+        {% if message %}
+            <div class="alert alert-danger alert-dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <strong>Warning!</strong> {{message}}
+            </div>
         {% endif %}
         <div class="login-box">   
             <div class="login-logo">
@@ -35,24 +38,6 @@
                     <button type="submit" class="btn btn-primary btn-block btn-flat">Login</button>
                 </form>
             </div>
-
         </div>
-        {% comment %}<form action="" class="form-signin" method="POST">
-            {% csrf_token %}
-            <h2 class="form-signin-heading">LOGIN</h2>
-            <div class="form-group">  
-                <div class="col-md-6">
-                    <input type="text" name="username" class="form-control" placeholder="Usuário"/>
-                </div>
-            </div>
-            
-            <div class="form-group">  
-                <div class="col-md-6">
-                    <input type="password" name="password" class="form-control" placeholder="Senha"/>
-                </div>
-            </div>
-            <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
-        </form>
-        <!--<h1> {{usuario}} </h1>-->{% endcomment %}
     </body>
 </html>

@@ -9,8 +9,9 @@
     </head>
     <body>
         {% csrf_token %}
-        <h1>Olá {{user.get_username}}, seja bem vindo!</h1>
+        
         <div class="col-md-1">
+            <h1 class="">{{user.get_full_name}}</h1>
             <a href="sair" class="btn btn-primary btn-block btn-flat">Sair</a>    
         </div>        
     </body>
