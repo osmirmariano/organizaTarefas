@@ -22,14 +22,7 @@ img{
 	max-width: 100%;
 }
 
-/*
-.logo{
-	width: 75px;
-	height: 75px;
-	float: left;
-	font-size: 0;
-}*/
-
+/*Parte Inicial topBannner*/
 .btn-menu{
 	width: 56px;
 	height: 56px;
@@ -91,6 +84,7 @@ img{
 	background-size: cover; 
 	background-attachment:  fixed;
 	background-position: center;
+	margin-bottom: 5%;	
 }
 
 .title{
@@ -114,31 +108,20 @@ img{
 	color: #fff;
 }
 
-.button{
-	width: 95%;
-	margin-top: 2%;
-	margin: 0 auto;
-}
-
-.button i{
-	float: right;
-}
-
-.btn {
-	font-size: 1.2em;
-	font-weight: 700;
-	cursor: pointer;
+/*Formulário*/
+.formulario{
 	padding: 5%;
-	border-radius: 10px;
-	background-color: #76FF03;
+}
+.panel .panel-info{
+	margin-top: 5px;
 }
 
-.btn-saiba{
-	width: 100%;
+.descricaoTitulo{
+	margin-top: 5%; 
+	font-size: 1.6em;
+	color: black;	
 	text-align: center;
-	color: white;
-	margin-top: 2%;
-	margin-bottom: 5%;
+	text-decoration: 900;
 }
 
 /* RODAPÉ */
@@ -227,22 +210,15 @@ img{
 		margin-bottom: 5%;
 		font-size: 2.5em;
 	}
-
-	.logo{
-		width: 100px;
-		height: 100px;
-		float: left;
-		background: url(../img/logo-mobile.png) center center/100px no-repeat;
-		margin-left: 5%;
-		font-size: 0;
-		margin-bottom: 5%; 
-		margin-top: -2%;
-	}
 }
 
 
 /*MEDIUM DEVICES - TABLETS & DESKTOPS*/
 @media screen and (min-width: 960px){
+	.banner{
+		height: 300px;
+	}
+
 	.title{
 		margin: 0 auto;		
 	}
@@ -260,17 +236,6 @@ img{
 		float: right;
 	}
 
-	.servico{
-		width: 20%;
-	}
-
-	.servicos:nth-child(2){
-		margin-right: 2%;
-	}
-
-	.servicos:nth-child(3){
-		margin-right: 0;
-	}
 
 	.btn-menu{
 		display: none;
@@ -328,20 +293,14 @@ img{
 
 /*LARGE DEVICES - WIDE SCREENS*/
 @media screen and (min-width: 1024px){
-	.servico{
-		width: 16%;
-		height: 30%;
-		text-align: center;
-		margin-top: 2%;
-	}
 
-	.servicos{
-		text-align: center;
-
+	.banner{
+		height: 300px;
 	}
 
 	.title h2{
-		margin-top: 10%;
+		padding: 0;
+		margin-top: 0;
 		margin-bottom: 1px;
 		font-size: 4em;
 	}
@@ -369,6 +328,7 @@ img{
 
 
 	.menu{
+		padding: 0;	
 		float: right;
 		display: inline-block;
 		position: static;

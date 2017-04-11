@@ -1,0 +1,16 @@
+@charset 'UTF-8';
+/*Formulário*/
+.formulario{
+	padding: 5%;
+}
+.panel .panel-info{
+	margin-top: 5px;
+}
+
+.descricaoTitulo{
+	margin-top: 5%; 
+	font-size: 1.6em;
+	color: black;	
+	text-align: center;
+	text-decoration: 900;
+}
