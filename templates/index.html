@@ -1,6 +1,8 @@
 <html>  
     <head>
         <meta charset="UTF-8"/>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8" /> 
+
         <title> Organiza Tarefas </title>
         {% load staticfiles %}
         <script src="{% static "js/jquery.js" %}"></script>
@@ -9,11 +11,12 @@
         <link rel="stylesheet" href="{% static "font-awesome/css/font-awesome.min.css" %}"/>
         <link rel="stylesheet" href="{% static "css/style.css" %}"/>
         <link rel="stylesheet" href="{% static "admin-lte/css/AdminLTE.min.css" %}"/>
+		<link rel="stylesheet" href="{% static "materialize/css/materialize.min.css" %}"/>
         <meta content="width=divice-width, inital-scale=1, maximum-scale=1, user-scalable=no" name="view"/> 
     </head>
 
     <body>
-        <div class="banner">
+		<div class="banner">
             <header class="cabecalho">
 				<button class="btn-menu"> <i class="fa fa-bars" aria-hidden="true"></i></button>
 				<nav class="menu">
@@ -26,71 +29,28 @@
             </header>
 
 			<div class="title" >
-				<h2>SEJA BEM VINDO {{user.get_full_name}},</h2>
+				<h2>SEJA BEM VINDO {{user}},</h2> <!--user.get_full_name-->
 				<h3>a um ambiente desenvolvido especialmente para você.</h3>
             </div>
         </div>
 
-
-        <div class="formulario">
-            <div class="panel panel-info">
-                <div class="panel-heading">
-                    <h3 class="panel-title descricaoTitulo">Registro de Tarefas</h3>
-                </div>
-                
-                <div class="panel-body">
-                    <form action="" method="POST">
-                        {% csrf_token %}
-                        <label for="">Título Tarefa</label>
-                        <div class="input-group">
-                            <span class="input-group-addon">
-                                <i class="fa fa-book" aria-hidden="true"></i>
-                            </span>
-                            <input type="text" required="required"  class="form-control" placeholder="Título tarefa...">
-                        </div>
-
-                        <label for="">Descrição da tarefa</label>
-                        <div class="input-group">
-                            <span class="input-group-addon">
-                                <i class="fa fa-pencil" aria-hidden="true"></i>
-                            </span>
-                            <input type="text" required="required" class="form-control" placeholder="Descrição...">
-                        </div>
-
-                        <label for="">Descricao Detalhada</label>
-                        <div class="input-group">
-                            <span class="input-group-addon">
-                                <i class="fa fa-pencil" aria-hidden="true"></i>
-                            </span>
-                            <textarea class="form-control" type="text" required="required" placeholder="Descrição detalhada..."></textarea>
-                        </div>
-
-                        <label for="">Data início da tarefa</label>
-                        <div class="input-group">
-                            <span class="input-group-addon">
-                                <i class="fa fa-calendar-o" aria-hidden="true"></i>
-                            </span>
-                            <input type="date" required="required" class="form-control"/>
-                        </div>
-                        
-                        <label for="">Data final da tarefa</label>
-                        <div class="input-group">
-                            <span class="input-group-addon">
-                                <i class="fa fa-calendar-o" aria-hidden="true"></i>
-                            </span>
-                            <input type="date" required="required" class="form-control"/>
-                        </div>
-
-                        <button type="submit" class="btn btn-info format">
-                            Salvar
-                        </button>
-                    </form>
-                </div>
-            </div>
-        </div>
-
+		{% for tarefas in object_list %}
+		<div class="row">
+			<div class="col s12 m5">
+				<div class="card card-panel teal darken-1">
+					<div class="card-content white-text">
+						<span class="card-title">{{ tarefas.titulo }}</span>
+						<p>{{ tarefas.descricao }}.</p>
+					</div>
+					<div class="card-action">
+						<a href="#" class="edicao"><i class="fa fa-pencil" title="Editar" aria-hidden="true"></i></a>
+						<a href="#" class="edicao"><i class="fa fa-trash" title="Excluir" aria-hidden="true"></i></a>
+					</div>
+				</div>
+			</div>
+      	</div>
+	  {% endfor %}
         
-
         <!-- RODAPÉ -->
 		<footer class="rodape">
 			<div class="social-icons">
