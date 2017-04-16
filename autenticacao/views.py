@@ -27,10 +27,10 @@ class autenticacaoUsuario(View):
                 else:
                         context.update(message='Usuário inativo')
         else:
-                context.update(message='Usário e/ou senha incorreto')
+                context.update(message='Usuário e/ou senha incorreto')
         return render (request, 'autenticacao/login.html', context)
 
 #class logout_View(View):
 def sair(request):
         logout(request)
-        return redirect ('/')
+        return redirect ('autenticacao/login.html')

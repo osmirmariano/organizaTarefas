@@ -66,7 +66,9 @@ img{
 }
 
 .menu li a{
-	font-size: 2em;
+	font-family: 'Lato', sans-serif;
+	font-weight: 900;
+	font-size: 1.2em;
 	color: #fff;
 	padding: 1.5% 3%;
 }
@@ -110,8 +112,90 @@ img{
 	color: #fff;
 }
 
+/*MOSTRANDO TAREFAS */
+.dados{
+	
+	width: 100%;
+	height: 80%;
+	float: left;
+	padding: 3% 3%;
+	text-align: center;
+
+}
+
+.dado{
+	width: 100%;
+	background-color: #00695C;
+	box-shadow: 2px 2px 2px 2px #8B8989;
+	-webkit-box-shadow: 2px 2px 2px 2px #CDC9C9;
+	-moz-box-shadow: 2px 2px 2px 2px #CDC9C9;
+	text-align: center;
+	border-radius: 2px;
+	margin-top: 2%;
+	
+}
+
+.dados h1{
+	font-size: 2em;
+	text-align: center;
+	color:white;
+	font-weight: 700;
+	margin-bottom: 2px;
+
+}
+
+
+.inner{
+	padding: 2%;
+}
+
+.inner h4{
+	font-size: 1.2em;
+	color: white;
+	margin-top: 2%;
+}
+
+.inner h3{
+	margin-top: 2%;
+	font-size: 1.2em;
+	font-style: italic;
+	color: yellow;
+	text-align: right;
+}
+
+p{
+	text-align: justify;
+}
+.tituloBanco{
+	text-align: center;
+}
+
+.dataFinal{
+	font-size: 1.2em;
+	font-style: italic;
+	color: yellow;
+	text-align: right;
+}
+
+.edicao{
+	padding-left: 5%;
+	padding-right: 5%;
+	margin-top: -2px !important;
+	float: right;
+	position: relative;
+	display: block;
+	font-size: 20px;
+}
+
+.ponteiro:hover{
+	cursor: pointer;
+	background-color: #ddd;
+   	width: 300px;
+   	padding: 10px;
+    
+}
 /* RODAPÉ */
-.rodape{
+.footerRodape{
 	width: 100%;
 	float: left;
 	padding: 3% 4%;
@@ -133,7 +217,7 @@ img{
 	color: rgb(255,255,255);
 }
 
-.copyright{
+.copyrightFooter{
 	margin-top: 2%;
 	color: rgba(255,255,255,0.7);
 }
@@ -350,7 +434,7 @@ img{
 	}
 
 	/* RODAPÉ */
-	.rodape{
+	.footerRodape{
 		width: 100%;
 		height: 140px;
 		float: left;

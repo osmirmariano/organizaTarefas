@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Alterar Tarefas</title>
+        {% load staticfiles %}
+        <script src="{% static "js/jquery.js" %}"></script>
+        <script src="{% static "js/bootstrap.js" %}"></script>
+        <link rel="stylesheet" href="{% static "css/bootstrap.css" %}"/>
+        <link rel="stylesheet" href="{% static "font-awesome/css/font-awesome.min.css" %}"/>
+        <link rel="stylesheet" href="{% static "css/adicionar.css" %}"/>
+        <link rel="stylesheet" href="{% static "admin-lte/css/AdminLTE.min.css" %}"/>
+        <link rel="stylesheet" href="{% static "materialize/css/materialize.min.css" %}"/>
+        <meta content="width=divice-width, inital-scale=1, maximum-scale=1, user-scalable=no" name="view"/> 
+    </head>
+    <body>
+        <div class="panel-body">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title descricaoTitulo">Edição de Tarefas</h3>
+                </div>
+                <div class="row">
+                    <form class="col s12 m12" action="/tarefas/{{ object.pk }}/" method="POST">
+                        <div class="row edicoes">
+                            {% csrf_token %}
+                            {{form}}
+                        </div>
+
+                        <button type="submit" class="btn btn-info format">
+                            Salvar
+                        </button>
+                        <button type="submit" class="btn btn-danger">
+                            <a class="cancelar" style="color: white;" href="{{ request.META.HTTP_REFERER }}"> Cancelar </a>
+                        </button>
+                    </form>
+                </div>
+        </div>
+
+        <!--<form action="/tarefas/{{ object.pk }}/" method="post">
+            {% csrf_token %}
+            {{ form }}
+            <input type="submit" value="Salvar" />
+        </form>-->
+    </body>
+</html>

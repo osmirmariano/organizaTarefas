@@ -5,8 +5,8 @@ from django.db import models
 
 # Create your models here.
 class Tarefas(models.Model):
-    titulo = models.CharField(max_length=100)
-    descricao = models.CharField(max_length=100)
+    titulo = models.CharField(max_length=255)
+    descricao = models.CharField(max_length=255)
     descricao_detalhada = models.CharField(max_length=300)
     ano_inicio = models.DateField()
     ano_final = models.DateField()

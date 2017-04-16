@@ -3,8 +3,8 @@ from django.conf.urls import url
 from tarefas import views
 
 urlpatterns = [
-    url(r'^$', views.ListarTarefas.as_view(), name='index'),
-    url(r'adicionar$', views.AdicionarTarefas.as_view()),
-    #url(r'^(?P<pk>[0-9]+)/$', views.editarTarefas.as_views(), name='editar-tarefas'),
-    #url(r'^deletar/(?P<pk>[0-9]+)/$', views.deletarTarefas.as_views(), name='deletar-tarefas'),
+    url(r'^$', views.ListarTarefas.as_view(), name='listar-tarefas'),
+    url(r'adicionar$', views.AdicionarTarefas.as_view(), name='adicionar-tarefas'),
+    url(r'^excluir/(?P<pk>[0-9]+)/$', views.DeletarTarefas.as_view(), name='deletar-tarefas'),
+    url(r'^(?P<pk>[0-9]+)/$', views.EditarTarefas.as_view(), name='editar-tarefas'),
 ]

@@ -9,22 +9,72 @@
         <link rel="stylesheet" href="{% static "font-awesome/css/font-awesome.min.css" %}"/>
         <link rel="stylesheet" href="{% static "css/adicionar.css" %}"/>
         <link rel="stylesheet" href="{% static "admin-lte/css/AdminLTE.min.css" %}"/>
+        <link rel="stylesheet" href="{% static "materialize/css/materialize.min.css" %}"/>
         <meta content="width=divice-width, inital-scale=1, maximum-scale=1, user-scalable=no" name="view"/> 
     </head>
 
     <body>
+
+        <script>
+             $(document).ready(function() {
+            var max_fields      = 10; //maximum input boxes allowed
+            var wrapper         = $(".input_fields_wrap"); //Fields wrapper
+            var add_button      = $(".add_field_button"); //Add button ID
+            
+            var x = 1; //initlal text box count
+            $(add_button).click(function(e){ //on add input button click
+                e.preventDefault();
+                if(x < max_fields){ //max input box allowed
+                    x++; //text box increment
+                    $(wrapper).append('<div><input type="text" name="mytext[]"/><a href="#" class="remove_field">Remove</a></div>'); //add input box
+                }
+            });
+            
+            $(wrapper).on("click",".remove_field", function(e){ //user click on remove text
+                e.preventDefault(); $(this).parent('div').remove(); x--;
+            })
+        });
+        </script>
+        
+
         <div class="formulario">
-            <div class="panel panel-info">
+            <div class="panel panel-primary">
                 <div class="panel-heading">
                     <h3 class="panel-title descricaoTitulo">Registro de Tarefas</h3>
                 </div>
 
                 <div class="panel-body">
-                    <form action="" method="POST">
+                    <div class="row">
+                        <form class="col s12 m12" action="" method="POST">
+                            <div class="row">
+                                {% csrf_token %}
+                                {% for campo in form %}
+                                    <div class="input-field col s12 m12">
+                                        {{campo}}
+                                        <label class="active" for="first_name2">{{campo.label}}</label>
+                                    </div>
+                                {% endfor %}
+                            </div>
+
+                            <div class="input_fields_wrap">
+                                <button class="add_field_button">Adicionar Detalhes</button>
+                                <div>
+                                    <input type="text" name="mytext[]">
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-info format">
+                                Salvar
+                            </button>
+                            <button type="button" class="btn btn-danger">
+                                <a class="cancelar" style="color: white;" href="{{ request.META.HTTP_REFERER }}"> Cancelar </a>
+                            </button>
+                        </form>
+                    </div>
+                    <!--<form action="" method="POST">
                         {% csrf_token %}
                         {% for campo in form %}
                             <div class="input-group">
-                                {{campo.label}}
+                                <b>{{campo.label}}</b>
                                  <span class="input-group-addon">
                                         <i class="fa fa-book" aria-hidden="true"></i>
                                 </span>
@@ -33,52 +83,7 @@
                         {% endfor %}
                         <button type="submit" class="btn btn-info format">
                             Salvar
-                        </button>
-                        {% comment %}<label for="">Título Tarefa</label>
-                        <div class="input-group">
-                            <span class="input-group-addon">
-                                <i class="fa fa-book" aria-hidden="true"></i>
-                            </span>
-                            <input type="text" name="{{title}}" required="required"  class="form-control" placeholder="Título tarefa...">
-   
-                        </div>
-
-                        <label for="">Descrição da tarefa</label>
-                        <div class="input-group">
-                            <span class="input-group-addon">
-                                <i class="fa fa-pencil" aria-hidden="true"></i>
-                            </span>
-                            <input type="text" name="{{descricao}}" required="required" class="form-control" placeholder="Descrição...">
-                        </div>
-
-                        <label for="">Descricao Detalhada</label>
-                        <div class="input-group">
-                            <span class="input-group-addon">
-                                <i class="fa fa-pencil" aria-hidden="true"></i>
-                            </span>
-                            <textarea class="form-control" type="text" required="required" placeholder="Descrição detalhada..."></textarea>
-                        </div>
-
-                        <label for="">Data início da tarefa</label>
-                        <div class="input-group">
-                            <span class="input-group-addon">
-                                <i class="fa fa-calendar-o" aria-hidden="true"></i>
-                            </span>
-                            <input type="date" required="required" class="form-control"/>
-                        </div>
-                        
-                        <label for="">Data final da tarefa</label>
-                        <div class="input-group">
-                            <span class="input-group-addon">
-                                <i class="fa fa-calendar-o" aria-hidden="true"></i>
-                            </span>
-                            <input type="date" required="required" class="form-control"/>
-                        </div>
-
-                        <button type="submit" class="btn btn-info format">
-                            Salvar
-                        </button>{% endcomment %}
-                    </form>
+                        </button>-->
                 </div>
             </div>
         </div>
