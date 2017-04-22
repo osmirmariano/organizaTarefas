@@ -22,6 +22,31 @@ img{
 	max-width: 100%;
 }
 
+.section-heading{
+	font-size: 1.4em;
+	margin-left: 8%;
+	color: #fff !important;
+}
+
+.section-heading-add{
+	color: black;
+	text-align: center;
+	font-size: 2.3em;
+	font-family: 'Lato', sans-serif;
+}
+
+
+
+.avatarImgs{
+	margin: 0 auto;
+	display: inline-block;
+	position: relative;
+	width: 140px;
+	height: 140px;
+	border-radius: 80px 80px 80px 80px;
+	border: 5px solid white;
+}
+
 /*Parte Inicial topBannner*/
 .btn-menu{
 	width: 56px;
@@ -97,7 +122,7 @@ img{
 
 .title h2{
 	margin-top: 20%;
-	font-size: 3em;
+	font-size: 2.3em !important;
 	color: #fff;
 	font-weight: 700;
 	text-shadow: 0 0 1em #4c4c4c;
@@ -105,10 +130,9 @@ img{
 	text-transform: uppercase;
 }
 
-.title h3{
-	margin-top: 5%;
+.title h5{
 	margin-bottom: 5%;
-	font-size: 2em;
+	font-size: 1.5em;
 	color: #fff;
 }
 
@@ -167,7 +191,9 @@ p{
 	text-align: justify;
 }
 .tituloBanco{
+	color: yellow;
 	text-align: center;
+	font-style: 900;
 }
 
 .dataFinal{
@@ -187,6 +213,29 @@ p{
 	font-size: 20px;
 }
 
+/*TRECHO*/
+.section-heading {
+	margin-top:0;
+	line-height:1.4;
+	font-size:34px;
+	color:#111;
+	text-align: center;
+}
+
+hr {
+	max-width: 100px;
+	border-color:#f05f40;
+	border-width:3px;
+	margin: 0 auto;
+}
+
+
+/*TRECHO*/
+
+
+.ponteiro{
+	margin-bottom: 20px;
+}
 .ponteiro:hover{
 	cursor: pointer;
 	background-color: #ddd;
@@ -397,17 +446,16 @@ p{
 	}
 
 
-	.menu{
-		padding: 0;	
+	.menu{	
 		float: right;
-		display: inline-block;
-		position: static;
+		display: block;
+		position: relative;
 	}
 
-	.menu ul{
+	/*.menu ul{
 		display: inline-block;
 		opacity: 0.9;
-		float: left;
+		float: right;
 	}
 
 	.menu li{
@@ -415,15 +463,14 @@ p{
 		list-style: none;
 		font-size: 1.2em;
 		padding: 0;
-		float: left;
+		float: right;
 		font-weight: 700;
 		top:0;
-	}
+	}*/
 
 	.menu li a{
 		color: #130400;
 		font-size: 1em;
-		padding: 15px;
 		color: white;
 	}
 

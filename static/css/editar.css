@@ -1,0 +1,17 @@
+@charset 'UTF-8';
+body{
+	background-color: #CED1CC;
+}
+
+
+.edicoes{
+    padding: 5%;
+}
+
+
+.descricaoTitulo{
+	font-size: 1.6em;
+	color: black;	
+	text-align: center;
+	text-decoration: 900;
+}

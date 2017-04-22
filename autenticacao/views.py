@@ -8,7 +8,6 @@ class autenticacaoUsuario(View):
     """
     Autenticação de usuários
     """
-
     def get(self, request):
         context = {}
         if self.request.user and self.request.user.is_active:
@@ -24,6 +23,7 @@ class autenticacaoUsuario(View):
                 if user.is_active:
                         login(self.request, user)
                         return render(request, 'index.html', context)
+                        # return redirect ('/')
                 else:
                         context.update(message='Usuário inativo')
         else:

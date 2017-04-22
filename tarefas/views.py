@@ -5,6 +5,8 @@ from django.core.urlresolvers import reverse_lazy
 from tarefas.forms import *
 from django.contrib.auth import authenticate,logout 
 from django.shortcuts import render, redirect
+from django.http.response import HttpResponseRedirect
+
 
 class ListarTarefas(ListView):
     """
@@ -23,6 +25,21 @@ class AdicionarTarefas(CreateView):
     form_class = FormularioTarefas
     template_name = 'tarefas/adicionar.html'
     success_url = reverse_lazy('listar-tarefas')
+
+    # def form_valid(self, form):
+
+    #     ctx = self.get_context_data()
+    #     print(ctx)
+
+    #     self.object = form.save()
+        
+        
+        # do something with self.object
+        # remember the import: from django.http import HttpResponseRedirect
+        
+        
+        
+        # return HttpResponseRedirect(self.get_success_url())
 
 
 class EditarTarefas(UpdateView):
