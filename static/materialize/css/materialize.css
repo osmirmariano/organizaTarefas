@@ -649,6 +649,7 @@
 
 .blue-text {
   color: #2196F3 !important;
+  text-align: center !important;
 }
 
 .blue.lighten-5 {
@@ -4116,6 +4117,7 @@ nav ul a span.badge {
 nav {
   color: #fff;
   background-color: #000000;
+  opacity:0.7;
   width: 100%;
   height: 56px;
   line-height: 56px;
