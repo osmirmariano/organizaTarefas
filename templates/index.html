@@ -3,7 +3,7 @@
         <meta charset="UTF-8"/>
 		<meta http-equiv="Content-type" content="text/html; charset=utf-8" /> 
 
-        <title> Organiza Tarefas </title>
+        <title> OrganizaTarefas </title>
         {% load staticfiles %}
         <script src="{% static "js/jquery.js" %}"></script>
         <script src="{% static "js/bootstrap.js" %}"></script>
@@ -29,7 +29,7 @@
 						</a>
 					</li>
 					<li>
-						<a href="sair/" title="Sair">
+						<a href="sair" title="Sair">
 							<i class="fa fa-power-off" aria-hidden="true"></i> SAIR
 						</a>
 					</li>
@@ -74,53 +74,33 @@
 			<div class="section">
 				<div class="row">
 					{% for tarefas in object_list %}
-					<div class="col s12 m6 ponteiro"> 
-						<div class="card card-panel teal darken-1">
-							<div class="card-content white-text">
-								<span class="card-title tituloBancos">{{ tarefas.titulo }}</span>
-								<p>{{ tarefas.descricao }}.</p>
-								<h3 class="dataFinal">{{ tarefas.ano_final }}</h3>
+						<a href="/tarefas/visualizar/{{tarefas.pk}}">
+							<div class="col s12 m6 ponteiro"> 
+								<div class="card card-panel teal darken-1">
+									<div class="card-content white-text">
+										<span class="card-title tituloBancos">{{ tarefas.titulo }}</span>
+										<p>{{ tarefas.descricao }}.</p>
+										<h3 class="dataFinal">{{ tarefas.ano_final }}</h3>
+									</div>
+									<div class="card-action">
+										<a href="/tarefas/{{tarefas.pk}}" class="edicao" title="Editar"><i class="fa fa-pencil" title="Editar" aria-hidden="true"></i></a>
+										<a href="/tarefas/excluir/{{tarefas.pk}}" class="edicao" title="Excluir"><i class="fa fa-trash" title="Excluir" aria-hidden="true"></i></a>
+									</div>
+								</div>
 							</div>
-							<div class="card-action">
-								<a href="/tarefas/{{tarefas.pk}}" class="edicao" title="Editar"><i class="fa fa-pencil" title="Editar" aria-hidden="true"></i></a>
-								<a href="/tarefas/excluir/{{tarefas.pk}}" class="edicao" title="Excluir"><i class="fa fa-trash" title="Excluir" aria-hidden="true"></i></a>
-							</div>
-						</div>
-					</div>
+						</a>
 					{% empty %}
-					<div class="row">
-					<div class="col s12 m12 ponteiro"> 
-						<div class="card-panel">
-							<div class="card-content white-text">
-								<span class="tituloBanco">Não existem Tarefas cadastradas no momento. Crie sua primeira tarefa em <b>+ ADICIONAR</b>!</span>
+						<div class="row">
+							<div class="col s12 m12 ponteiro"> 
+								<div class="card-panel">
+									<div class="card-content white-text">
+										<span class="tituloBanco">Não existem Tarefas cadastradas no momento. Crie sua primeira tarefa em <b>+ ADICIONAR</b>!</span>
+									</div>
+								</div>
 							</div>
 						</div>
-					</div>
-					</div>
-					<!--FALTA IMPLEMENTAR PARA QUE DE ACORDO COM O CLICK DA TAREFA MOSTRAR A ESPECÍFICA-->
 					{% endfor %}
 				</div>
-			</div>
-		</div>
-
-
-
-
-		
-		<!--MOSTRANDO TUDO-->
-		<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
-			<div class="modal-dialog modal-lg" role="document">				
-				<div class="modal-content">
-					
-					<span class="card-title tituloBanco">{{ tarefas.titulo }}</span>
-					<p>{{ tarefas.descricao }}.</p>
-					<p>{{ tarefas.detalhada}}</p>
-					<h3 class="dataFinal">{{ tarefas.ano_final }}</h3>
-				
-				</div>
-			</div>
-			<div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
 			</div>
 		</div>
 

@@ -17,12 +17,12 @@ class FormularioTarefas(forms.ModelForm):
         self.fields['titulo'].widget.attrs['placeholder'] = 'Título da sua tarefas...'
         self.fields['titulo'].widget.attrs['required'] = 'required'
         
-        self.fields['descricao'].label = 'Descrição:'
+        self.fields['descricao'].label = 'Resumo:'
         self.fields['descricao'].widget.attrs['class'] = 'validate'
         self.fields['descricao'].widget.attrs['placeholder'] = 'Descrição da sua tarefa...'
         self.fields['descricao'].widget.attrs['required'] = 'required'
 
-        self.fields['descricao_detalhada'].label = 'Descrição detalhada:'
+        self.fields['descricao_detalhada'].label = 'Descrição:'
         self.fields['descricao_detalhada'].widget.attrs['class'] = 'validate'
         self.fields['descricao_detalhada'].widget.attrs['placeholder'] = 'Descrição da sua tarefa...'
         self.fields['descricao_detalhada'].widget.attrs['required'] = 'required'

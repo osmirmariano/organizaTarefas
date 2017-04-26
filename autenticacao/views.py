@@ -15,15 +15,16 @@ class autenticacaoUsuario(View):
         return render(request, 'autenticacao/login.html', context)
 
     def post(self, request):
-        context = {}
+        context = {tarefas}
         username = request.POST['username']
         password = request.POST['password']
         user = authenticate(username=username, password=password)
         if user is not None:
                 if user.is_active:
                         login(self.request, user)
-                        return render(request, 'index.html', context)
-                        # return redirect ('/')
+                        return redirect(request, 'index.html', context)
+                        #return render(request, 'index.html', context)
+                        return redirect ('/')
                 else:
                         context.update(message='Usuário inativo')
         else:
