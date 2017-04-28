@@ -24,12 +24,12 @@
 				{% comment %}<a class="btn-close"><i class="fa fa-times" aria-hidden="true"></i>{% endcomment %}
 				<ul id="nav-mobile" class="right hide-on-med-and-down band">
 					<li>
-						<a href="adicionar" title="Adicionar Tarefas">
+						<a href="tarefas/adicionar" title="Adicionar Tarefas">
 							<i class="fa fa-plus" aria-hidden="true"></i> ADICIONAR
 						</a>
 					</li>
 					<li>
-						<a href="sair" title="Sair">
+						<a href="sair/" title="Sair">
 							<i class="fa fa-power-off" aria-hidden="true"></i> SAIR
 						</a>
 					</li>
@@ -61,7 +61,7 @@
 			</div>
 
 			<div class="title" >
-				<h2>SEJA BEM-VINDO, {{user}}</h2> <!--user.get_full_name-->
+				<h2>SEJA BEM-VINDO, {{user.get_full_name}}</h2> <!--user.get_full_name-->
 				<h5>a um ambiente desenvolvido especialmente para você.</h5>
             </div>
         </div>
@@ -107,8 +107,8 @@
         <!-- RODAPÉ -->
 		<footer class="footerRodape">
 			<div class="social-icons">
-				<a href="#" target="_blank"><i class="fa fa-facebook"></i></a>
-				<a href="#" target="_blank"><i class="fa fa-github" ></i></a>
+				<a href="https://www.facebook.com/osmirmariano" target="_blank"><i class="fa fa-facebook"></i></a>
+				<a href="https://github.com/osmirmariano/" target="_blank"><i class="fa fa-github" ></i></a>
 				<a href="#" target="_blank"><i class="fa fa-google"></i></a>
 				<a href="#" target="_blank"><i class="fa fa-instagram"></i></a>
 				<a href="#" target="_blank"><i class="fa fa-envelope"></i></a>

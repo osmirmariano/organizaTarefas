@@ -7,5 +7,5 @@ urlpatterns = [
     url(r'adicionar$', views.AdicionarTarefas.as_view(), name='adicionar-tarefas'),
     url(r'^excluir/(?P<pk>[0-9]+)/$', views.DeletarTarefas.as_view(), name='deletar-tarefas'),
     url(r'^(?P<pk>[0-9]+)/$', views.EditarTarefas.as_view(), name='editar-tarefas'),
-    url(r'^visualizar/(?P<pk>[0-9]+)/$', views.VisualizarTarefas.as_view(), name='visualizar-tarefas'),
+    url(r'^visualizar/(?P<pk>[0-9]+)/$', views.VisualizarTarefas.as_view(), name='visualizar-tarefas')
 ]

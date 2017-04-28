@@ -23,7 +23,7 @@
             </div>
             <div class="login-box-body">
                 <p class="login-box-msg">Entre com seu usuário e senha</p>
-                <form action="" method="POST">
+                <form action="/" method="POST">
                     {% csrf_token %}
                     <div class="form-group has-feedback">
                         <input name="username" type="text" class="form-control" placeholder="Usuário" required="required"/>
@@ -37,6 +37,9 @@
 
                     <button type="submit" class="btn btn-primary btn-block btn-flat">Login</button>
                 </form>
+                <a href="cadastro/">
+                    <button type="button" class="btn btn-primary btn-block btn-flat">Registrar-se</button>
+                </a>
             </div>
         </div>
     </body>

@@ -19,21 +19,21 @@ class FormularioTarefas(forms.ModelForm):
         
         self.fields['descricao'].label = 'Resumo:'
         self.fields['descricao'].widget.attrs['class'] = 'validate'
-        self.fields['descricao'].widget.attrs['placeholder'] = 'Descrição da sua tarefa...'
+        self.fields['descricao'].widget.attrs['placeholder'] = 'Resumo da sua tarefa...'
         self.fields['descricao'].widget.attrs['required'] = 'required'
 
         self.fields['descricao_detalhada'].label = 'Descrição:'
-        self.fields['descricao_detalhada'].widget.attrs['class'] = 'validate'
+        self.fields['descricao_detalhada'].widget.attrs['class'] = 'materialize-textarea'
         self.fields['descricao_detalhada'].widget.attrs['placeholder'] = 'Descrição da sua tarefa...'
         self.fields['descricao_detalhada'].widget.attrs['required'] = 'required'
 
         self.fields['ano_inicio'].label = 'Data Início:'
-        self.fields['ano_inicio'].widget.attrs['class'] = 'validate'
+        self.fields['ano_inicio'].widget.attrs['class'] = 'datepicker'
         self.fields['ano_inicio'].widget.attrs['placeholder'] = '00/00/0000'
         self.fields['ano_inicio'].widget.attrs['required'] = 'required'
 
         self.fields['ano_final'].label = 'Data Final:'
-        self.fields['ano_final'].widget.attrs['class'] = 'validate'
+        self.fields['ano_final'].widget.attrs['class'] = 'datepicker'
         self.fields['ano_final'].widget.attrs['placeholder'] = '00/00/0000'
         self.fields['ano_final'].widget.attrs['required'] = 'required'
         

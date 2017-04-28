@@ -29,7 +29,9 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'autenticacao.apps.AutenticacaoConfig',
     'tarefas.apps.TarefasConfig',
+    'cadastro.apps.CadastroConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -122,3 +124,5 @@ DATE_INPUT_FORMATS = ('%d/%m/%Y',)
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (BASE_DIR.child('static'),)
 STATIC_ROOT = BASE_DIR.parent.child('static')
+MEDIA_URL = '/images/'
+MEDIA_URL = '%s/images/' % BASE_DIR
