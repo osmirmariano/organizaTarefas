@@ -8,6 +8,14 @@ body{
     padding: 5%;
 }
 
+.cadastro{
+    text-align: center !important;
+    font-weight: 900;
+    font-size: 2em;
+    color: white;
+    text-transform: uppercase;
+    font-family: 'Lato', sans-serif;
+}
 
 .descricaoTitulo{
 	font-size: 1.6em;

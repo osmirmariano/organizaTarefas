@@ -17,7 +17,8 @@ Including another URLconf
 from django.conf.urls import url
 from cadastro import views
 
+
 urlpatterns = [
-    url(r'^registrar/$', views.registrar, name='registrar-usuario'),
+    url(r'^$', views.Registrar.as_view(), name='registrar-usuario'),
 ]
 
