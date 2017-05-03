@@ -8,7 +8,7 @@ class FormularioTarefas(forms.ModelForm):
     """
     class Meta:
         model = Tarefas
-        exclude = []
+        exclude = ['dono']
     def __init__(self, *args, **kwargs):
         super(FormularioTarefas, self). __init__(*args, **kwargs)
         

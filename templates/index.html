@@ -43,7 +43,7 @@
 			</div>
 
 			<div class="title" >
-				<h2>SEJA BEM-VINDO, {{user.get_full_name}}</h2> <!--user.get_full_name-->
+				<h2>SEJA BEM-VINDO, {{user}}</h2> <!--user.get_full_name-->
 				<h5>a um ambiente desenvolvido especialmente para você.</h5>
             </div>
         </div>
@@ -67,6 +67,7 @@
 									<div class="card-action">
 										<a href="/tarefas/{{tarefas.pk}}" class="edicao" title="Editar"><i class="fa fa-pencil" title="Editar" aria-hidden="true"></i></a>
 										<a href="/tarefas/excluir/{{tarefas.pk}}" class="edicao" title="Excluir"><i class="fa fa-trash" title="Excluir" aria-hidden="true"></i></a>
+										<a href="#" class="edicao"><i class="fa fa-share-alt" title="Compartilhar" aria-hidden="true"></i></a>
 									</div>
 								</div>
 							</div>
