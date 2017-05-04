@@ -32,14 +32,6 @@ class AdicionarTarefas(LoginRequiredMixin, CreateView):
         form.instance.dono = self.request.user
         return super(AdicionarTarefas, self).form_valid(form)
 
-    # def form_valid(self, form):
-    #     ctx = self.get_context_data()
-    #     print(ctx)
-    #     self.object = form.save()
-        # do something with self.object
-        # remember the import: from django.http import HttpResponseRedirect
-        # return HttpResponseRedirect(self.get_success_url())
-
 
 class EditarTarefas(LoginRequiredMixin, UpdateView):
     """

@@ -26,18 +26,10 @@
                                 <div class="row edicoes">
                                     {% csrf_token %}
                                     {{form}}
-
+                                    
                                     <div class="row">
-                                        <div class="col s3">
-                                            <button type="submit" class="btn btn-info format">
-                                                Salvar
-                                            </button>
-                                        </div>
-                                        <div class="col s3">
-                                            <button type="button" class="btn btn-danger">
-                                                <a class="cancelar" style="color: white;" href="{{ request.META.HTTP_REFERER }}"> Cancelar </a>
-                                            </button>
-                                        </div>
+                                        <button type="submit" class="btn"> Salvar </button>
+                                        <a class="btn #d32f2f red darken-2" href="{{ request.META.HTTP_REFERER }}"> Cancelar </a>
                                     </div>
                                 </div>
                             </div>
