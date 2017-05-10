@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
-
 from django.db import models
 from django.contrib.auth.models import User
 
@@ -22,3 +21,11 @@ class Tarefas(models.Model):
             self.ano_inicio,
             self.ano_final
         )
+
+
+class Compartilhamento(models.Model):
+    usuario = models.ForeignKey(User, on_delete = models.CASCADE)
+    tarefa = models.ForeignKey(Tarefas, on_delete = models.CASCADE)
+    
+    class Meta:
+        unique_together = ("usuario", "tarefa")

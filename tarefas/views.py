@@ -62,3 +62,12 @@ class DeletarTarefas(LoginRequiredMixin, DeleteView):
     model = Tarefas
     template_name = 'tarefas/excluir.html'
     success_url = reverse_lazy('listar-tarefas')
+
+class CompartilharTarefas(LoginRequiredMixin, UpdateView):
+    """
+    Formulario para excluir as tarefas
+    """
+    login_url = '/'
+    model = Tarefas
+    template_name = 'tarefas/compartilhamento.html'
+    success_url = reverse_lazy('listar-tarefas')
