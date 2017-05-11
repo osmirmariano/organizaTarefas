@@ -24,8 +24,8 @@ class Tarefas(models.Model):
 
 
 class Compartilhamento(models.Model):
-    usuario = models.ForeignKey(User, on_delete = models.CASCADE)
-    tarefa = models.ForeignKey(Tarefas, on_delete = models.CASCADE)
+    usuario = models.ForeignKey(User)
+    tarefa = models.ForeignKey(Tarefas)
     
     class Meta:
         unique_together = ("usuario", "tarefa")

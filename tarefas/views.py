@@ -7,7 +7,8 @@ from tarefas.forms import *
 from django.contrib.auth import authenticate,logout 
 from django.shortcuts import render, redirect
 from django.http.response import HttpResponseRedirect
-from tarefas.models import Tarefas
+from django.views.generic import View
+from django.shortcuts import render
 
 class ListarTarefas(LoginRequiredMixin, ListView):
     """
@@ -63,11 +64,29 @@ class DeletarTarefas(LoginRequiredMixin, DeleteView):
     template_name = 'tarefas/excluir.html'
     success_url = reverse_lazy('listar-tarefas')
 
-class CompartilharTarefas(LoginRequiredMixin, UpdateView):
+class CompartilharTarefas(LoginRequiredMixin, View):
     """
     Formulario para excluir as tarefas
     """
     login_url = '/'
-    model = Tarefas
-    template_name = 'tarefas/compartilhamento.html'
-    success_url = reverse_lazy('listar-tarefas')
+
+    def get(self, request, pk):
+        context = {
+            'object_list': User.objects.all()
+        }
+        return render(request, 'tarefas/compartilhar.html', context)
+   
+
+
+class Compartilhamento(LoginRequiredMixin, View):
+    """
+    Formulario para excluir as tarefas
+    """
+    login_url = '/'
+    def get(self, request):
+        context = {
+            'object_list': User.object_list.all()
+        }
+        return render(request, 'index.html', context)
+
+
