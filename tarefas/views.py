@@ -90,3 +90,8 @@ class Compartilhamento(LoginRequiredMixin, View):
         return render(request, 'index.html', context)
 
 
+class CompartilharTarefasUsuario(LoginRequiredMixin, View):
+    login_url = '/'
+    def post(self, request):
+        user.id
+        return render(redirect, 'index.html', context)

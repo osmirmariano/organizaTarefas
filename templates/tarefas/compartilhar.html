@@ -20,7 +20,7 @@
             });
         </script>
        
-        <form action="/tarefas/compartilhar/{{ object.pk }}/" method="POST">
+        <form action="/tarefas/{{ object.pk }}/" method="POST">
             <div  data-toggle="modal" data-target=".bs-example-modal-lg" class="container">
                 <div class="section">
                     <div class="row">
@@ -34,7 +34,9 @@
                                     <option  value="" selected="selected">SELECIONE OPÇÃO</option>
                                     
                                     {% for users in object_list %}
-                                        <option value="{{ users.id }} ">{{ users }}</option>
+                                        {% if users != user %}
+                                            <option value="{{ users.id }} ">{{ users }}</option>
+                                        {% endif %}
                                     {% endfor %}
                                 </select>
                             </div>
