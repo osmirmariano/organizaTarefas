@@ -21,11 +21,3 @@ class Tarefas(models.Model):
             self.ano_inicio,
             self.ano_final
         )
-
-
-class Compartilhamento(models.Model):
-    usuario = models.ForeignKey(User)
-    tarefa = models.ForeignKey(Tarefas)
-    
-    class Meta:
-        unique_together = ("usuario", "tarefa")

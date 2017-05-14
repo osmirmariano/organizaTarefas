@@ -11,7 +11,6 @@
         {% comment %}<link rel="stylesheet" href="{% static "admin-lte/css/AdminLTE.min.css" %}"/>{% endcomment %}
         <link rel="stylesheet" href="{% static "materialize/css/materialize.min.css" %}"/>
         <meta content="width=divice-width, inital-scale=1, maximum-scale=1, user-scalable=no" name="view"/> 
-
     </head>
     <body>
         <script>    
@@ -19,14 +18,14 @@
                 $('select').material_select();
             });
         </script>
-        {{ object.pk }}
-        <form action="/tarefas/tarefasCompartilhadaUsuario/{{ object.pk }}" method="POST">
+         
+        <form action="/compartilhamento/compartilhar/{{ object.pk }}" method="POST">
             <div  data-toggle="modal" data-target=".bs-example-modal-lg" class="container">
                 <div class="section">
                     <div class="row">
                         <div class="col s12 m12">
                             <div class="card card-panel teal darken-1">
-                                <p class="cadastro">Compartilhamento de Tarefas</p>
+                                <p class="cadastro">Compartilhamento de Tarefas {{ object.pk }}</p>
                             </div>
                             <div class="card" style="padding: 10%;">
                                 Escolha o usuário que seja compartilhar sua tarefa

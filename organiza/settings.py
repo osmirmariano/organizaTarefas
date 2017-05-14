@@ -32,6 +32,7 @@ INSTALLED_APPS = [
     'autenticacao.apps.AutenticacaoConfig',
     'tarefas.apps.TarefasConfig',
     'cadastro.apps.CadastroConfig',
+    'compartilhamento.apps.CompartilhamentoConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
