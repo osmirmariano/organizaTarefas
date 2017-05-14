@@ -1,20 +1,20 @@
+
 <html>  
     <head>
         <meta charset="UTF-8"/>
         <title> Organiza Tarefas </title>
         {% load staticfiles %}
         <script src="{% static "js/jquery.js" %}"></script>
-        <script src="{% static "js/bootstrap.js" %}"></script>
+        <script src="{% static "materialize/js/materialize.min.js" %}"></script>
         <!--<link rel="stylesheet" href="{% static "css/bootstrap.css" %}"/>-->
         <link rel="stylesheet" href="{% static "font-awesome/css/font-awesome.min.css" %}"/>
         <link rel="stylesheet" href="{% static "css/adicionar.css" %}"/>
         {% comment %}<link rel="stylesheet" href="{% static "admin-lte/css/AdminLTE.min.css" %}"/>{% endcomment %}
-        <link rel="stylesheet" href="{% static "materialize/css/materialize.min.css" %}"/>
+        <link rel="stylesheet" href="{% static "materialize/css/materialize.min.css" %}"/>  
         <meta content="width=divice-width, inital-scale=1, maximum-scale=1, user-scalable=no" name="view"/> 
     </head>
 
     <body>
-
         <script>
              $(document).ready(function() {
             var max_fields      = 10; //maximum input boxes allowed
@@ -35,6 +35,28 @@
             })
         });
         </script>
+
+        <script>
+            $(document).ready(function() {
+                $('.datepicker').pickadate({
+                    monthsFull: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
+                    monthsShort: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
+                    weekdaysFull: ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sabádo'],
+                    weekdaysShort: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab'],
+                    today: 'Hoje',
+                    clear: 'Limpar',
+                    close: 'Pronto',
+                    labelMonthNext: 'Próximo mês',
+                    labelMonthPrev: 'Mês anterior',
+                    labelMonthSelect: 'Selecione um mês',
+                    labelYearSelect: 'Selecione um ano',
+                    selectMonths: true, 
+                    selectYears: 15,
+                    format: 'dd/mm/yyyy',
+                    separator: ' '
+                });
+            });
+        </script>
         
         <form action="" method="POST">
             {% csrf_token %}
@@ -51,7 +73,7 @@
                                 {% for campo in form %}
                                     <div class="input-field col s12 m12">
                                         {{campo}}
-                                        <label class="active" for="first_name2">{{campo.label}}</label>
+                                        <label class="active" style="font-size: 1em; font-weight: 900;" for="first_name2">{{campo.label}}</label>
                                     </div>
                                 {% endfor %}
                                 </div>

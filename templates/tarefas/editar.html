@@ -4,16 +4,35 @@
         <title>Alterar Tarefas</title>
         {% load staticfiles %}
         <script src="{% static "js/jquery.js" %}"></script>
-        <script src="{% static "js/bootstrap.js" %}"></script>
-        <link rel="stylesheet" href="{% static "css/bootstrap.css" %}"/>
+        <script src="{% static "materialize/js/materialize.min.js" %}"></script>
         <link rel="stylesheet" href="{% static "font-awesome/css/font-awesome.min.css" %}"/>
         <link rel="stylesheet" href="{% static "css/adicionar.css" %}"/>
-        <link rel="stylesheet" href="{% static "admin-lte/css/AdminLTE.min.css" %}"/>
         <link rel="stylesheet" href="{% static "materialize/css/materialize.min.css" %}"/>
         <meta content="width=divice-width, inital-scale=1, maximum-scale=1, user-scalable=no" name="view"/> 
     </head>
     
     <body>
+        <script>
+            $(document).ready(function() {
+                $('.datepicker').pickadate({
+                    monthsFull: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
+                    monthsShort: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
+                    weekdaysFull: ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sabádo'],
+                    weekdaysShort: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab'],
+                    today: 'Hoje',
+                    clear: 'Limpar',
+                    close: 'Pronto',
+                    labelMonthNext: 'Próximo mês',
+                    labelMonthPrev: 'Mês anterior',
+                    labelMonthSelect: 'Selecione um mês',
+                    labelYearSelect: 'Selecione um ano',
+                    selectMonths: true, 
+                    selectYears: 15,
+                    format: 'dd/mm/yyyy',
+                    separator: ' '
+                });
+            });
+        </script>
         <form action="/tarefas/{{ object.pk }}/" method="POST">
             <div  data-toggle="modal" data-target=".bs-example-modal-lg" class="container">
                 <div class="section">

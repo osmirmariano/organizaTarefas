@@ -30,11 +30,10 @@
                                 <p class="dataTarefa">Sua tarefa apresenta data de início para <b>{{ tarefas.ano_inicio }}</b> e encerrará em <b>{{ tarefas.ano_final }}<b/></p>
                             </div>
                         </div>
+                        <a class="btn #d32f2f red darken-2" style="margin-bottom: 8%;" href="{{ request.META.HTTP_REFERER }}"> Voltar </a>
                     </div>
                 </div>
             </div>
-            <a class="btn #d32f2f red darken-2" style="margin-bottom: 8%;" href="{{ request.META.HTTP_REFERER }}"> Voltar </a>
-            <!--<button type="submit" class="btn waves-effect waves-light red" style="margin-bottom: 8%;" data-dismiss="modal">Voltar</button>-->
         </div>
     </body>
 </html>
