@@ -10,5 +10,5 @@ urlpatterns = [
     url(r'^visualizar/(?P<pk>[0-9]+)/$', views.VisualizarTarefas.as_view(), name='visualizar-tarefas'),
     url(r'^compartilhar/(?P<pk>[0-9]+)/$', views.CompartilharTarefas.as_view(), name='compartilhar-tarefas'),
     url(r'^compartilhamento/(?P<pk>[0-9]+)/$', views.Compartilhamento.as_view(), name='compartilhamento'),
-    url(r'^tarefasCompartilhdaUsuario/(?P<pk>[0-9]+)/$', views.CompartilharTarefasUsuario.as_view(), name='compartilhar-usuario')
+    url(r'^tarefasCompartilhadaUsuario/(?P<pk>[0-9]+)/$', views.CompartilharTarefasUsuario.as_view(), name='compartilhar-usuario')
 ]

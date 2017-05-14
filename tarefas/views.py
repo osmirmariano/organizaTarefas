@@ -91,7 +91,19 @@ class Compartilhamento(LoginRequiredMixin, View):
 
 
 class CompartilharTarefasUsuario(LoginRequiredMixin, View):
+    """
+    Instancias de compartilhamentos de tarefas
+    """
     login_url = '/'
-    def post(self, request):
-        user.id
-        return render(redirect, 'index.html', context)
+
+    def get(self, request, pk):
+        #form.instance.usuario = self.request.user
+        #form.instance.tarefa = self.request.tarefas
+        print(pk)
+        usuario = User.objects.get(pk=pk)
+        tarefas = Tarefas.objects.get(pk=pk)
+        context = {
+            'Tarefas': tarefas, 
+            'Usuario': usuario
+        }
+        return render(request, 'index.html', context)
