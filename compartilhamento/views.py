@@ -54,6 +54,15 @@ class CompartilharTarefasUsuario(LoginRequiredMixin, View):
         return render(request, 'index.html', context)
 
 
+class EditarTarefasCompartilhada(LoginRequiredMixin, UpdateView):
+    """
+    Formulario para editar as tarefas
+    """
+    login_url = '/'
+    model = CompartilhamentoUsuario
+    form_class = FormularioTarefas
+    template_name = 'tarefas/editar.html'
+    success_url = reverse_lazy('listar-tarefas')
 
 #class Compartilhamento(LoginRequiredMixin, View):
 #    """

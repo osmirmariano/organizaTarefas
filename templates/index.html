@@ -19,7 +19,7 @@
     <body>		
 		<script>
 			$(document).ready(function(){
-				$('ul.tabs').tabs('select_tab', 'tab_id');
+				$('ul.tabs').tabs();
 			});
 		</script>
 		<nav>
@@ -58,12 +58,13 @@
 		<hr> -->
 		
 		<div class="row">
-			<div class="col s12">
+			<div class="col s12" style="margin-left: 5%;">
 				<ul class="tabs">
 					<li class="tab col s6"><a class="active" href="#minhasTarefas" style="color: black; font-weight: 900; font-size: 1.2em;">Minhas Tarefas</a></li>
 					<li class="tab col s5"><a href="#compartilhadaComigo" style="color: black; font-weight: 900; font-size: 1.2em;">Compartilhadas Comigo</a></li>
 				</ul>
 			</div>
+			
 			<div id="minhasTarefas" class="col s12">
 				<div  data-toggle="modal" data-target=".bs-example-modal-lg" class="container">
 					<div class="section">
@@ -100,6 +101,7 @@
 					</div>
 				</div>
 			</div>
+			
 			<div id="compartilhadaComigo" class="col s12">
 				<div  data-toggle="modal" data-target=".bs-example-modal-lg" class="container">
 					<div class="section">
@@ -114,9 +116,7 @@
 												<h3 class="dataFinal">{{ compartilhamento.tarefa.ano_final }}</h3>
 											</div>
 											<div class="card-action">
-												<a href="/tarefas/{{tarefas.pk}}" class="edicao" title="Editar"><i class="fa fa-pencil" title="Editar" aria-hidden="true"></i></a>
-												<a href="/tarefas/excluir/{{tarefas.pk}}" class="edicao" title="Excluir"><i class="fa fa-trash" title="Excluir" aria-hidden="true"></i></a>
-												<a href="/compartilhamento/{{tarefas.pk}}" class="edicao"><i class="fa fa-share-alt" title="Compartilhar" aria-hidden="true"></i></a>
+												<a href="/tarefas/{{compartilhamento.tarefa.pk}}" class="edicao" title="Editar"><i class="fa fa-pencil" title="Editar" aria-hidden="true"></i></a>
 											</div>
 										</div>
 									</div>
