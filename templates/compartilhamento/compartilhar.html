@@ -18,7 +18,7 @@
                 $('select').material_select();
             });
         </script>
-         
+         {{ object.pk }}
         <form action="/compartilhamento/compartilhar/{{ object.pk }}" method="POST">
             <div  data-toggle="modal" data-target=".bs-example-modal-lg" class="container">
                 <div class="section">

@@ -10,6 +10,7 @@ from django.shortcuts import render, redirect
 from django.http.response import HttpResponseRedirect
 from django.views.generic import View
 from django.shortcuts import render
+from compartilhamento.models import CompartilhamentoUsuario
 
 # Create your views here.
 class CompartilharTarefas(LoginRequiredMixin, View):
@@ -20,23 +21,22 @@ class CompartilharTarefas(LoginRequiredMixin, View):
 
     def get(self, request, pk):
         context = {
-            'object_list': User.objects.all()
+            'object_list': User.objects.all(),
+            'pk': pk
         }
         return render(request, 'compartilhamento/compartilhar.html', context)
    
 
-
-#class Compartilhamento(LoginRequiredMixin, View):
-#    """
-#    Formulario para excluir as tarefas
-#    """
-#    login_url = '/'
-#    def get(self, request):
-#        context = {
-#            'object_list': User.object_list.all()
-#        }
-#        return render(request, 'index.html', context)
-
+class ListarCompartilhamento(LoginRequiredMixin, ListView):
+    """
+    Formulario para listar compartilhamento
+    """
+    login_url = '/'
+    model = CompartilhamentoUsuario
+    template_name = 'index.html'
+    def get_queryset(self):
+        queryset = CompartilhamentoUsuario.objects.filter(usuario=self.request.user)
+        return queryset
 
 class CompartilharTarefasUsuario(LoginRequiredMixin, View):
     """
@@ -52,3 +52,17 @@ class CompartilharTarefasUsuario(LoginRequiredMixin, View):
             'Usuario': usuario
         }
         return render(request, 'index.html', context)
+
+
+
+#class Compartilhamento(LoginRequiredMixin, View):
+#    """
+#    Formulario para excluir as tarefas
+#    """
+#    login_url = '/'
+#    def get(self, request):
+#        context = {
+#            'object_list': User.object_list.all()
+#        }
+#        return render(request, 'index.html', context)
+

@@ -63,3 +63,42 @@ class DeletarTarefas(LoginRequiredMixin, DeleteView):
     model = Tarefas
     template_name = 'tarefas/excluir.html'
     success_url = reverse_lazy('listar-tarefas')
+
+
+
+"""
+class CompartilharTarefas(LoginRequiredMixin, View):
+   
+    login_url = '/'
+
+    def get(self, request, pk):
+        context = {
+            'object_list': User.objects.all(),
+            'pk': pk
+        }
+        return render(request, 'compartilhamento/compartilhar.html', context)
+   
+
+class ListarCompartilhamento(LoginRequiredMixin, ListView):
+    
+    login_url = '/'
+    model = Tarefas
+    template_name = 'index.html'
+#    def get_queryset(self):
+#        queryset = Compartilhamento.objects.filter(dono=self.request.user)
+#        return queryset
+
+class CompartilharTarefasUsuario(LoginRequiredMixin, View):
+    
+    login_url = '/'
+
+    def get(self, request, pk):
+        usuario = User.objects.get(pk=pk)
+        tarefas = Tarefas.objects.get(pk=pk)
+        context = {
+            'Tarefas': tarefas, 
+            'Usuario': usuario
+        }
+        return render(request, 'index.html', context)
+
+"""
