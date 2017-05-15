@@ -33,7 +33,7 @@ class ListarCompartilhamento(LoginRequiredMixin, ListView):
     """
     login_url = '/'
     model = CompartilhamentoUsuario
-    template_name = 'index.html'
+    template_name = 'compartilhamento/listar.html'
     def get_queryset(self):
         queryset = CompartilhamentoUsuario.objects.filter(usuario=self.request.user)
         return queryset
@@ -45,8 +45,10 @@ class CompartilharTarefasUsuario(LoginRequiredMixin, View):
     login_url = '/'
 
     def get(self, request, pk):
-        usuario = User.objects.get(pk=pk)
-        tarefas = Tarefas.objects.get(pk=pk)
+        #usuario = User.objects.get(pk=pk)
+        #tarefas = Tarefas.objects.get(pk=pk)
+        usuario = User.objects.filter(usuario=self.request.user)
+        tarefas = Tarefas.objects.get(tarefas=self.request.tarefas)
         context = {
             'Tarefas': tarefas, 
             'Usuario': usuario
@@ -63,6 +65,21 @@ class EditarTarefasCompartilhada(LoginRequiredMixin, UpdateView):
     form_class = FormularioTarefas
     template_name = 'tarefas/editar.html'
     success_url = reverse_lazy('listar-tarefas')
+
+
+
+
+
+class ListarTarefas(LoginRequiredMixin, ListView):
+    """
+    Formulario para listas as tarefas adicionadas
+    """
+    model = Tarefas
+    template_name = 'index.html'
+    login_url = '/'
+    def get_queryset(self):
+        queryset = Tarefas.objects.filter(dono=self.request.user)
+        return queryset
 
 #class Compartilhamento(LoginRequiredMixin, View):
 #    """

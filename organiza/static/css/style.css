@@ -243,6 +243,40 @@ hr {
 }
 
 
+/*MOSTRAR NOTÍCIAS DIFERENCIADAS*/
+.mostra{
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+}
+
+.mostra ul {
+	list-style:none;
+	text-align: center;
+	
+}
+
+.mostra ul:hover{
+	color: #009688;
+}
+
+.mostra li{
+	padding: 1.5%;
+	display:inline;
+	text-transform: uppercase;
+}
+
+.mostra li a{
+	font-size: 2em;
+	color: #fff;
+	padding: 1.5% 3%;
+}
+
+.mostra li a:hover{
+	border-bottom: 2px solid #009688;
+}
+
 /*TRECHO*/
 
 
@@ -422,6 +456,16 @@ hr {
 
 /*LARGE DEVICES - WIDE SCREENS*/
 @media screen and (min-width: 1024px){
+	.mostra {
+		position: relative;
+		overflow-x: auto;
+		overflow-y: hidden;
+		height: 48px;
+		width: 100%;
+		background-color: #fff;
+		margin: 0 auto;
+		white-space: nowrap;
+	}
 
 	.banner{
 		height: 300px;

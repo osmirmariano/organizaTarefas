@@ -1,0 +1,136 @@
+<html>  
+    <head>
+        <meta charset="UTF-8"/>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8" /> 
+
+        <title> OrganizaTarefas </title>
+        {% load staticfiles %}
+        <script src="{% static "js/jquery.js" %}"></script>
+        <script src="{% static "materialize/js/materialize.min.js" %}"></script>
+        <!--<link rel="stylesheet" href="{% static "css/bootstrap.css" %}"/>-->
+        <link rel="stylesheet" href="{% static "font-awesome/css/font-awesome.min.css" %}"/>
+        <link rel="stylesheet" href="{% static "css/style.css" %}"/>
+		
+        {% comment %}<link rel="stylesheet" href="{% static "admin-lte/css/AdminLTE.min.css" %}"/>{% endcomment %}
+		<link rel="stylesheet" href="{% static "materialize/css/materialize.min.css" %}"/>
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <meta content="width=divice-width, inital-scale=1, maximum-scale=1, user-scalable=no" name="view"/> 
+    </head>
+
+    <body>		
+		<script>
+			$(document).ready(function(){
+				$('ul.tabs').tabs();
+			});
+		</script>
+		<nav>
+			<div class="nav-wrapper">
+				{% comment %}<button class="btn-menu"> <i class="fa fa-bars" aria-hidden="true"></i></button>{% endcomment %}
+				<a href="#" class="brand-logo"><h2 class="section-heading"><b>ORGANIZA</b>Tarefas</h2></a>
+				{% comment %}<a class="btn-close"><i class="fa fa-times" aria-hidden="true"></i>{% endcomment %}
+				<ul id="nav-mobile" class="right hide-on-med-and-down band">
+					<li>
+						<a href="/tarefas/adicionar" title="Adicionar Tarefas">
+							<i class="fa fa-plus" aria-hidden="true"></i> ADICIONAR
+						</a>
+					</li>
+					<li>
+						<a href="/tarefas/sair" title="Sair">
+							<i class="fa fa-power-off" aria-hidden="true"></i> SAIR
+						</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+
+		<div class="banner">
+			<div>
+				<img class="avatarImgs" src="/static/img/userAvatar.png">
+			</div>
+
+			<div class="title" >
+				<h2>SEJA BEM-VINDO, {{user}}</h2> <!--user.get_full_name-->
+				<h5>a um ambiente desenvolvido especialmente para você.</h5>
+            </div>
+        </div>
+
+		<!--TAREFAS INSERIDAS
+		<h2 class="section-heading-add"><b>MINHAS</b> TAREFAS </h2>
+		<hr> -->
+		<div class="mostra">
+			<ul>
+				<li><a href="/tarefas" style="color: black; font-weight: 900; font-size: 1.2em;"><i class="material-icons">person</i> Minhas Tarefas</a></li>
+				<li><a href="/compartilhamento" style="color: black; font-weight: 900; font-size: 1.2em;"> <i class="material-icons">supervisor_account</i> Compartilhadas Comigo</a></li>
+			</ul>
+		</div>
+
+		<div  data-toggle="modal" data-target=".bs-example-modal-lg" class="container">
+            <div class="section">
+                <div class="row">
+                    {% for compartilhamento in object_list %}
+                        <a href="/tarefas/visualizar/{{compartilhamento.tarefa.pk}}">
+                            <div class="col s12 m6 ponteiro"> 
+                                <div class="card blue-grey darken-1">
+                                    <div class="card-content white-text">
+                                        <span class="card-title tituloBancos">{{ compartilhamento.tarefa.titulo}} </span>
+                                        <p>{{ compartilhamento.tarefa.descricao }}.</p>
+                                        <h3 class="dataFinal">{{ compartilhamento.tarefa.ano_final }}</h3>
+                                    </div>
+                                    <div class="card-action">
+                                        <a href="/tarefas/{{compartilhamento.tarefa.pk}}" class="edicao" title="Editar"><i class="fa fa-pencil" title="Editar" aria-hidden="true"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    {% empty %}
+                        <div class="row">
+                            <div class="col s12 m12 ponteiro"> 
+                                <div class="card-panel">
+                                    <div class="card-content white-text">
+                                        <span class="tituloBanco">Não existem <b>Tarefas</b> compartilhada com você</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+        <!-- RODAPÉ -->
+		<footer class="footerRodape">
+			<div class="social-icons">
+				<a href="https://www.facebook.com/osmirmariano" target="_blank"><i class="fa fa-facebook"></i></a>
+				<a href="https://github.com/osmirmariano/" target="_blank"><i class="fa fa-github" ></i></a>
+				<a href="#" target="_blank"><i class="fa fa-google"></i></a>
+				<a href="#" target="_blank"><i class="fa fa-instagram"></i></a>
+				<a href="#" target="_blank"><i class="fa fa-envelope"></i></a>
+			</div>
+			<p class="copyrightFooter">Copyright &copy 2017 - <b>Organiza</b>Tarefas. <br/>Todos os direitos reservados.</p>
+        </footer>
+
+        <!--jQuery -->
+        <script>
+			$(".btn-menu").click(function(){
+				$(".menu").show();
+			});
+			$(".btn-close").click(function(){
+				$(".menu").hide();
+			});
+		</script>
+		
+        <!-- JAVASCRIPT -->
+		<script>
+			jQuery("document").ready(function($){
+		    var menu = $('.cabecalho');
+		    $(window).scroll(function () {
+		        if ($(this).scrollTop() > 136) {
+		            menu.addClass("f-menu");
+		        } else {
+		            menu.removeClass("f-menu");
+		        }
+		    });
+		});
+		</script>
+    </body>
+</html>
