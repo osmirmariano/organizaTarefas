@@ -5,12 +5,12 @@ from django.views.generic.list import ListView
 from django.core.urlresolvers import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
 from tarefas.forms import *
-from django.contrib.auth import authenticate,logout 
+from compartilhamento.forms import *
+from compartilhamento.models import CompartilhamentoUsuario
 from django.shortcuts import render, redirect
 from django.http.response import HttpResponseRedirect
 from django.views.generic import View
 from django.shortcuts import render
-from compartilhamento.models import CompartilhamentoUsuario
 
 # Create your views here.
 class CompartilharTarefas(LoginRequiredMixin, View):
@@ -19,10 +19,11 @@ class CompartilharTarefas(LoginRequiredMixin, View):
     """
     login_url = '/'
 
-    def get(self, request, pk):
+    def get(self, request):
+        id_tarefa = self.request.GET.get('id_tarefa',0)
         context = {
             'object_list': User.objects.all(),
-            'pk': pk
+            'id_tarefa': id_tarefa
         }
         return render(request, 'compartilhamento/compartilhar.html', context)
    
@@ -43,12 +44,10 @@ class CompartilharTarefasUsuario(LoginRequiredMixin, View):
     Instancias de compartilhamentos de tarefas
     """
     login_url = '/'
-
     def get(self, request, pk):
-        #usuario = User.objects.get(pk=pk)
-        #tarefas = Tarefas.objects.get(pk=pk)
-        usuario = User.objects.filter(usuario=self.request.user)
-        tarefas = Tarefas.objects.get(tarefas=self.request.tarefas)
+        tarefas = Tarefas.objects.get(pk=pk)
+        usuario = User.objects.filter(pk=pk)
+        tarefas.save()
         context = {
             'Tarefas': tarefas, 
             'Usuario': usuario

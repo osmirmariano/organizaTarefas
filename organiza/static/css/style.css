@@ -113,7 +113,7 @@ hr{
 	float: left;
 	text-align: center;
 	padding: 3% 4%;
-	background: url(/static/img/fundo.png) no-repeat fixed; 
+	background: url(/static/img/fundo.jpg) no-repeat fixed; 
 	background-size: cover; 
 	background-attachment:  fixed;
 	background-position: center;

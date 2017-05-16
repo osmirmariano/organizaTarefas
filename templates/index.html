@@ -80,7 +80,8 @@
 									<div class="card-action">
 										<a href="/tarefas/{{tarefas.pk}}" class="edicao" title="Editar"><i class="fa fa-pencil" title="Editar" aria-hidden="true"></i></a>
 										<a href="/tarefas/excluir/{{tarefas.pk}}" class="edicao" title="Excluir"><i class="fa fa-trash" title="Excluir" aria-hidden="true"></i></a>
-										<a href="/compartilhamento/{{tarefas.pk}}" class="edicao"><i class="fa fa-share-alt" title="Compartilhar" aria-hidden="true"></i></a>
+										<a href="{% url 'compartilhar-tarefas'%}?id_tarefa={{tarefas.pk}}" class="edicao" title="Compartilhar" method="get"><i class="fa fa-share-alt" title="Compartilhar" aria-hidden="true"></i></a>
+										<!--<a href="/compartilhamento/{{tarefas.pk}}" class="edicao"><i class="fa fa-share-alt" title="Compartilhar" aria-hidden="true"></i></a>-->
 									</div>
 								</div>
 							</div>

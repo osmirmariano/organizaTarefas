@@ -18,7 +18,8 @@
                 $('select').material_select();
             });
         </script>
-        <form action="/compartilhamento/compartilhar/{{ object.pk }}" method="POST">
+        <form action="" method="GET">
+            {% csrf_token %}
             <div  data-toggle="modal" data-target=".bs-example-modal-lg" class="container">
                 <div class="section">
                     <div class="row">
@@ -36,11 +37,12 @@
                                             <option value="{{ users.id }} ">{{ users }}</option>
                                         {% endif %}
                                     {% endfor %}
-
+{{tarefas.pk}}
                                 </select>
                             </div>
                             <div class="row">
-                                <button type="submit" class="btn" style="margin-left: 1%;"> Compartilhar </button>
+                                <a class="btn" href="{% url 'compartilhar-usuario'%}?id_tarefa={{tarefas.pk}}&id_usuario={{users.id}}" method="get">Compartilhar</a>
+                                <!--<button type="submit" class="btn" style="margin-left: 1%;"> Compartilhar </button>-->
                                 <a class="btn #d32f2f red darken-2" href="{{ request.META.HTTP_REFERER }}"> Cancelar </a>
                             </div>
                         </div>
