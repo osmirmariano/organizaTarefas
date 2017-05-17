@@ -46,15 +46,14 @@ class CompartilharTarefasUsuario(LoginRequiredMixin, View):
     login_url = '/'
     print('teste')
     def get(self, request):
+        compartilhamento = CompartilhamentoUsuario()
         id_tarefa = self.request.GET.get('id_tarefa','')
         id_usuario = self.request.GET.get('id_usuario','')
         tarefa = Tarefas.objects.get(id=id_tarefa)
         usuario = User.objects.get(id=id_usuario)
-        #form_class = CompartilhamentoForm
-        #model = CompartilhamentoUsuario
-        #CompartilhamentoForm.save()
-        usuario.save()
-        tarefa.save()
+        compartilhamento.usuario = usuario
+        compartilhamento.tarefa = tarefa
+        compartilhamento.save()
         
         context = {
             'tarefas': tarefa, 
