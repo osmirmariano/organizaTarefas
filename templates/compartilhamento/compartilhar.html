@@ -18,8 +18,15 @@
                 $('select').material_select();
             });
         </script>
-        <form action="" method="GET">
-            {% csrf_token %}
+        <script>
+            $(function(){
+                $('a').click(function(){
+                    var selec = ($('#selecionado').val());
+                   
+                });
+            });
+        </script>
+        <!--<form action="" method="POST">-->
             <div  data-toggle="modal" data-target=".bs-example-modal-lg" class="container">
                 <div class="section">
                     <div class="row">
@@ -28,8 +35,17 @@
                                 <p class="cadastro">Compartilhamento de Tarefas</p>
                             </div>
                             <div class="card" style="padding: 10%;">
-                                Escolha o usuário que seja compartilhar sua tarefa
-                                <select>
+                                <h3 class="tituloCompartilhamento">Escolha o usuário que deseja compartilhar sua tarefa</h3>
+                                {% for users in object_list %}
+                                    {% if users != user %}
+                                        <select>
+                                            <option id="result" value="{{ users.id }}"> {{ users.get_full_name }}</option>
+                                        </select>
+                                        <a class="btn" href="{% url 'compartilhar-usuario'%}?id_tarefa={{id_tarefa}}&id_usuario={{users.id}}" method="get">Compartilhar</a>
+                                    {% endif %} 
+                                {% endfor %}
+
+                                <!--<select>
                                     <option  value="" selected="selected">SELECIONE OPÇÃO</option>
                                     
                                     {% for users in object_list %}
@@ -37,11 +53,11 @@
                                             <option value="{{ users.id }} ">{{ users }}</option>
                                         {% endif %}
                                     {% endfor %}
-{{tarefas.pk}}
-                                </select>
+                                </select>-->
                             </div>
+                            
                             <div class="row">
-                                <a class="btn" href="{% url 'compartilhar-usuario'%}?id_tarefa={{tarefas.pk}}&id_usuario={{users.id}}" method="get">Compartilhar</a>
+                                
                                 <!--<button type="submit" class="btn" style="margin-left: 1%;"> Compartilhar </button>-->
                                 <a class="btn #d32f2f red darken-2" href="{{ request.META.HTTP_REFERER }}"> Cancelar </a>
                             </div>
@@ -49,7 +65,7 @@
                     </div>
                 </div>
             </div>
-        </form>
+        <!--</form>-->
     </body>
 
 </html

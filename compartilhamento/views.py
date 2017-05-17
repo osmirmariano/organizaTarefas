@@ -20,7 +20,7 @@ class CompartilharTarefas(LoginRequiredMixin, View):
     login_url = '/'
 
     def get(self, request):
-        id_tarefa = self.request.GET.get('id_tarefa',0)
+        id_tarefa = self.request.GET.get('id_tarefa','')
         context = {
             'object_list': User.objects.all(),
             'id_tarefa': id_tarefa
@@ -44,15 +44,25 @@ class CompartilharTarefasUsuario(LoginRequiredMixin, View):
     Instancias de compartilhamentos de tarefas
     """
     login_url = '/'
-    def get(self, request, pk):
-        tarefas = Tarefas.objects.get(pk=pk)
-        usuario = User.objects.filter(pk=pk)
-        tarefas.save()
+    print('teste')
+    def get(self, request):
+        id_tarefa = self.request.GET.get('id_tarefa','')
+        id_usuario = self.request.GET.get('id_usuario','')
+        tarefa = Tarefas.objects.get(id=id_tarefa)
+        usuario = User.objects.get(id=id_usuario)
+        #form_class = CompartilhamentoForm
+        #model = CompartilhamentoUsuario
+        #CompartilhamentoForm.save()
+        usuario.save()
+        tarefa.save()
+        
         context = {
-            'Tarefas': tarefas, 
-            'Usuario': usuario
+            'tarefas': tarefa, 
+            'usuario': usuario
         }
-        return render(request, 'index.html', context)
+
+        print(context)
+        return render(request, 'compartilhamento/listar.html', context)
 
 
 class EditarTarefasCompartilhada(LoginRequiredMixin, UpdateView):
